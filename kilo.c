@@ -298,7 +298,7 @@ void editorUpdateSyntax(erow *row){
         if (prev_sep) {
             int j;
             for (j = 0; keywords[j]; j++) {
-                int klen = strlen([keywords[j]]);
+                int klen = strlen(keywords[j]);
                 int kw2 = keywords[j][klen - 1] == '|';
                 if (kw2) klen--;
 
@@ -374,7 +374,7 @@ int editorRowRxToCx(erow *row, int rx) {
     int cur_rx = 0;
     int cx;
     for (cx = 0; cx < row->size; cx++){
-        if (row->chars[cx] = '\t')
+        if (row->chars[cx] == '\t')
             cur_rx += (KILO_TAB_STOP - 1) - (cur_rx % KILO_TAB_STOP);
         cur_rx++;
 
